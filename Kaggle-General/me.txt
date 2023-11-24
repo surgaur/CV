@@ -1,0 +1,8 @@
+!!! PLease remember all the files contain in this folder are not build by me !!!
+
+All the files contain in this folder are work of other people not mine. I just saved these file for future purpose.
+These files are downloaded from Kaggle competetion mostly under the Apache 2.0 open source License .
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+!!! PLease remember all the files contain in this folder are not build by me !!!
