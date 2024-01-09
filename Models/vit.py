@@ -107,5 +107,42 @@ model = EncorderBlock()
 result = model(x).shape
 
 
+##########
+# Different Implementation of patch Embedding
+##########
+
+class PatchEmbedding(nn.Module):
+    def __init__(self,img_size , patch_size , embed_dim = 768):
+        super().__init__()
+        
+        '''Split images into patches and embed them.
+    img_size : int (size of the image)
+    patch_size : int (size of the image)
+    in_chans : int (Number of input channel for RGB it is 3 and gray_scals its is 1)
+    embed_dim : int (hyperparameter)
+        '''
+    
+        self.img_size = img_size
+        self.patch_size = patch_size
+        self.n_patches = (img_size//patch_size)**2
+        self.conv = nn.Conv2d(in_channels
+                 , embed_dim
+                 , kernel_size = patch_size
+                 , stride=patch_size,)
+    
+    def forward(self,x):
+        '''
+        input: batch_size,in_channels,img_size,img_size
+        output:batch_size,embed_dim,n_patches
+        
+        '''
+        x = self.conv(x)
+        x = x.flatten(2) ## flatten will change (batch_size,embed_dim,patch_size,patch_size) into (batch_size,embed_dim,n_patches)
+        x = x.transpose(1,2)
+
+        return x
+    
+
+
         
         
